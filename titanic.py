@@ -18,6 +18,9 @@ test = pd.read_csv(test_url)
 # Create the column Child and assign to 'NaN'
 train["Child"] = float('NaN')
 
+# Fill in median of age in records missing the age value
+train["Age"] = train["Age"].fillna(train["Age"].median())
+
 # Assign 1 to passengers under 18, 0 to those 18 or older. Print the new column.
 train.loc[train["Age"] < 18, "Child"] = 1
 train.loc[train["Age"] >= 18, "Child"] = 0
@@ -36,7 +39,7 @@ test_one.loc[test_one.Sex=='female', test_one.Survived] = 1
 
 ############### STEP 4
 
-train["Age"] = train["Age"].fillna(train["Age"].median())
+
 
 # Convert the male and female groups to integer form
 train.loc[train.Sex=='male',"Sex"]=0
