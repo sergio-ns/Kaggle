@@ -39,8 +39,6 @@ test_one.loc[test_one.Sex=='female', test_one.Survived] = 1
 
 ############### STEP 4
 
-
-
 # Convert the male and female groups to integer form
 train.loc[train.Sex=='male',"Sex"]=0
 train.loc[train.Sex=='female',"Sex"]=1
